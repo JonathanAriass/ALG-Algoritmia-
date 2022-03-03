@@ -1,0 +1,34 @@
+package alg77777777.p2 ;
+
+import alg77777777.p2.Vector;
+
+
+public class Burbuja extends Vector
+{
+	public Burbuja(int nElementos) {
+		super(nElementos);
+	}
+
+	/**
+	 * Ordenación por el método de Burbuja
+	 */
+	@Override
+	public void ordenar() {
+		int n = elements.length;
+		int auxPos;
+		for (int i=0; i<n-1;i++) {
+			auxPos = i;
+			for (int j=i+1;j<n;j++) {
+				if (elements[j] < elements[i]) {
+					auxPos = j;
+				}
+			}
+			intercambiar(i, auxPos);
+		}
+	}  
+
+	@Override
+	public String getNombre() {
+		return "Burbuja";
+	}  
+} 

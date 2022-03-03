@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;alg77777777.p2&apos; to &apos;alg71780972Y.p2&apos;&#x0D;&#x0A;- Original project: &apos;Practica 4 - UO283586&apos;&#x0D;&#x0A;- Original element: &apos;Practica 4 - UO283586/src/alg77777777.p2&apos;&#x0D;&#x0A;- Renamed element: &apos;Practica 4 - UO283586/src/alg71780972Y.p2&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;alg77777777.p2&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src&lt;alg77777777.p2" name="alg71780972Y.p2" qualified="false" references="true" stamp="1646138280590" textual="false" version="1.0"/>
+</session>
