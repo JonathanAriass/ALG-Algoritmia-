@@ -1,0 +1,50 @@
+Azerbaiyán--> Rojo
+Países Bajos--> Rojo
+Francia--> Rojo
+Hungría--> Rojo
+Turquía--> Azul
+Portugal--> Rojo
+Dinamarca--> Rojo
+Armenia--> Verde
+Austria--> Azul
+Eslovenia--> Verde
+Noruega--> Rojo
+Ciudad del Vaticano--> Rojo
+Chipre--> Rojo
+Luxemburgo--> Azul
+Albania--> Rojo
+Rusia--> Azul
+Bélgica--> Verde
+Bosnia y Herzegovina--> Rojo
+Kazajistán--> Rojo
+Macedonia--> Azul
+Eslovaquia--> Verde
+Finlandia--> Verde
+Georgia--> Amarillo
+Lituania--> Rojo
+República Checa--> Rojo
+Suiza--> Verde
+España--> Azul
+Malta--> Rojo
+Moldavia--> Rojo
+Andorra--> Verde
+Liechtenstein--> Rojo
+Bulgaria--> Rojo
+Grecia--> Verde
+Serbia--> Verde
+Ucrania--> Amarillo
+Mónaco--> Azul
+Irlanda--> Rojo
+Polonia--> Negro
+Croacia--> Azul
+Alemania--> Amarillo
+Italia--> Amarillo
+Reino Unido--> Azul
+Islandia--> Rojo
+Bielorrusia--> Verde
+Suecia--> Azul
+Letonia--> Amarillo
+San Marino--> Rojo
+Rumania--> Azul
+Montenegro--> Amarillo
+Estonia--> Rojo
