@@ -8,8 +8,8 @@ public class PromediadorImagenBench {
 	// Ajustes del banco de pruebas
 	private static String REAL_IMG = "img/einstein_1_256.png";
 	private static String BAD_IMG = "img/einstein_1_256.png";
-	private static String OUT_DIR_G = "img/out_g";
-	private static String OUT_DIR_B = "img/out_bt";
+	private static String OUT_DIR_G = "img/out_g/";
+	private static String OUT_DIR_B = "img/out_bt/";
 	private static int N_IMGS = 13; 
 	private static double PORCENTAJE_BAD = 25; // %
 	private static double S_NOISE = 5.0; // Nivel de ruido - desvici�n est�ndar de una distrubuci�n Gaussiana

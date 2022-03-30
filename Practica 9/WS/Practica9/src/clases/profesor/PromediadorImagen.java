@@ -119,31 +119,40 @@ public class PromediadorImagen {
 		Imagen half_img1;
 		Imagen half_img2;
 		double znnc = -1;
-		int counter = 0;
 		for (int j=0;j<n_tries;j++) {
 			half_img1 = new Imagen(width, height);
 			half_img2 = new Imagen(width, height);
+			System.out.println("ENTRANDO DE NUEVO AL BUCLE");
 			for (int i=0; i<this.dataset.length;i++) {
-				val = r.nextInt();
-				if (val >= 0 && val < 1/3) {
-					aux[i] = 0;
-				}
-				else if (val >= 1/3 && val < 2/3) {
-					aux[i] = 1;
-					half_img1.addSignal(this.dataset[i]);
-				}
-				else if (val >= 2/3 && val <= 1) {
-					aux[i] = 2;
-					half_img2.addSignal(this.dataset[i]);					
-				}			
+				val = r.nextInt((2-0)+1) + 0;
+				System.out.println(val);
+				switch(val) {
+					case 0:
+						aux[i] = 0;
+						break;
+					case 1:
+						aux[i] = 1;
+						half_img1.addSignal(this.dataset[i]);
+						break;
+					case 2:
+						aux[i] = 2;
+						half_img2.addSignal(this.dataset[i]);
+						break;
+				}		
 			}
-			if (half_img1.zncc(half_img2) > znnc) {
+			if (this.zncc() > this.max_zncc) {
+				
+				System.out.println("IF CONDICIONAL: " + half_img1.zncc(half_img2));
 				this.half1_img = half_img1;
 				this.half2_img = half_img2;
 				this.bestSol = aux;
-				this.max_zncc = half_img1.zncc(half_img2);
+				this.max_zncc = this.zncc();
 			}
 		}
+//		for (int k=0;k<this.dataset.length;k++) {
+//			avg_img.addSignal(dataset[k]);
+//		}
+		avg_img = half1_img;
 	}
 	
 	/**
