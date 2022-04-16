@@ -116,16 +116,11 @@ public class PromediadorImagen {
 		Random r = new Random();
 		int val; 
 		int[] aux = new int[dataset.length];
-//		Imagen half_img1;
-//		Imagen half_img2;
-//		double znnc = -1;
 		for (int j=0;j<n_tries;j++) {
 			half1_img = new Imagen(width, height);
 			half2_img = new Imagen(width, height);
-//			System.out.println("ENTRANDO DE NUEVO AL BUCLE");
 			for (int i=0; i<this.dataset.length;i++) {
 				val = r.nextInt((2-0)+1) + 0;
-//				System.out.println(val);
 				switch(val) {
 					case 0:
 						aux[i] = 0;
@@ -141,22 +136,13 @@ public class PromediadorImagen {
 				}		
 			}
 			if (this.zncc() > this.max_zncc) {
-				
-//				System.out.println("IF CONDICIONAL: " + this.zncc());
-//				this.half1_img = half_img1;
-//				this.half2_img = half_img2;
 				this.bestSol = aux;
 				this.max_zncc = this.zncc();
 				half1_img.addSignal(half2_img);
 				avg_img = half1_img;
 			}
 		}
-//		for (int k=0;k<this.dataset.length;k++) {
-//			avg_img.addSignal(dataset[k]);
-//		}
-		for (int el : bestSol) {
-			System.out.print(el + " ");			
-		}
+
 		
 	}
 	
@@ -166,12 +152,55 @@ public class PromediadorImagen {
 	 *                   entre los dos subconjuntos              
 	 */
 	public void splitSubsetsBacktracking(int max_unbalancing) {
-		// TODO
+		this.max_zncc = 0;
+		auxBacktracking(0, 0, max_unbalancing);
+		avg_img.addSignal(half1_img);
+		avg_img.addSignal(half2_img);
+	}
+	
+	private void auxBacktracking(int nivel, int valor, int max_unbalancing) {
+		if (nivel == dataset.length && isValidSolution(max_unbalancing)) {
+			avg_img = new Imagen(width, height);
+			Imagen half_img1 = new Imagen(width, height);
+			Imagen half_img2 = new Imagen(width, height);
+			for (int i=0;i<sol.length;i++) {
+				if (sol[i] == 1) {
+					half_img1.addSignal(this.dataset[i]);
+				} else if (sol[i] == 2) {
+					half_img2.addSignal(this.dataset[i]);
+				}
+			}
+
+			if (half_img1.zncc(half_img2) > this.max_zncc) {
+				counter++;
+				for (int j = 0;j<sol.length;j++) {
+					bestSol[j] = sol[j];
+				}
+				this.max_zncc = half_img1.zncc(half_img2);
+				this.half1_img = half_img1;
+				this.half2_img = half_img2;
+
+			}
+			return;
+		} else {
+			sol[nivel] = 0;
+			auxBacktracking(nivel+1, 0, max_unbalancing);
+			sol[nivel] = 1;
+			auxBacktracking(nivel+1, 1, max_unbalancing);
+			sol[nivel] = 2;
+			auxBacktracking(nivel+1, 2, max_unbalancing);
+		}
 	}
 
-	private int cont = 0;
-	//private int[] soluciones = new int[dataset.length];
-	private Random r = new Random();
+	private boolean isValidSolution(int balance) {
+		int n_1 = 0;
+		int n_2 = 0;
+		for (int el : sol) {
+			if (el == 1) n_1++;
+			else if (el == 2) n_2++;
+		}
+		return n_1 - n_2 <= balance;
+	}
 	
 	/**
 	 * Algoritmo backtracking sin condici�n de balanceo.           
