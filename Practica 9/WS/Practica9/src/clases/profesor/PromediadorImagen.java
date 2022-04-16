@@ -10,7 +10,7 @@ public class PromediadorImagen {
 	private Imagen real_img, bad_img; // para almacenar las imagenes con patron bueno y malo (negativo del malo)
 	private Imagen avg_img, half1_img, half2_img; // para almacenar los promedios del subconjunto 1 y 2
 	private Imagen[] dataset; // almacena el conjunto de de imagenes generadas (buenas y malas)
-	private int[] sol; // array que determina donde poner las im�genes 0->no asignada, 1->primer subconjunto, 2->segundo subconjunto
+	public int[] sol; // array que determina donde poner las im�genes 0->no asignada, 1->primer subconjunto, 2->segundo subconjunto
 	private int[] bestSol; // mejor soluci�n
 	private int width, height; // ancho y alto de las im�genes
 	//backtracking variables
@@ -116,43 +116,48 @@ public class PromediadorImagen {
 		Random r = new Random();
 		int val; 
 		int[] aux = new int[dataset.length];
-		Imagen half_img1;
-		Imagen half_img2;
-		double znnc = -1;
+//		Imagen half_img1;
+//		Imagen half_img2;
+//		double znnc = -1;
 		for (int j=0;j<n_tries;j++) {
-			half_img1 = new Imagen(width, height);
-			half_img2 = new Imagen(width, height);
-			System.out.println("ENTRANDO DE NUEVO AL BUCLE");
+			half1_img = new Imagen(width, height);
+			half2_img = new Imagen(width, height);
+//			System.out.println("ENTRANDO DE NUEVO AL BUCLE");
 			for (int i=0; i<this.dataset.length;i++) {
 				val = r.nextInt((2-0)+1) + 0;
-				System.out.println(val);
+//				System.out.println(val);
 				switch(val) {
 					case 0:
 						aux[i] = 0;
 						break;
 					case 1:
 						aux[i] = 1;
-						half_img1.addSignal(this.dataset[i]);
+						half1_img.addSignal(this.dataset[i]);
 						break;
 					case 2:
 						aux[i] = 2;
-						half_img2.addSignal(this.dataset[i]);
+						half2_img.addSignal(this.dataset[i]);
 						break;
 				}		
 			}
 			if (this.zncc() > this.max_zncc) {
 				
-				System.out.println("IF CONDICIONAL: " + half_img1.zncc(half_img2));
-				this.half1_img = half_img1;
-				this.half2_img = half_img2;
+//				System.out.println("IF CONDICIONAL: " + this.zncc());
+//				this.half1_img = half_img1;
+//				this.half2_img = half_img2;
 				this.bestSol = aux;
 				this.max_zncc = this.zncc();
+				half1_img.addSignal(half2_img);
+				avg_img = half1_img;
 			}
 		}
 //		for (int k=0;k<this.dataset.length;k++) {
 //			avg_img.addSignal(dataset[k]);
 //		}
-		avg_img = half1_img;
+		for (int el : bestSol) {
+			System.out.print(el + " ");			
+		}
+		
 	}
 	
 	/**
@@ -164,11 +169,60 @@ public class PromediadorImagen {
 		// TODO
 	}
 
+	private int cont = 0;
+	//private int[] soluciones = new int[dataset.length];
+	private Random r = new Random();
+	
 	/**
 	 * Algoritmo backtracking sin condici�n de balanceo.           
 	 */
 	public void splitSubsetsBacktracking() {
-		// TODO
+		this.max_zncc = 0;
+		auxBacktracking(0, 0);
+		avg_img.addSignal(half1_img);
+		avg_img.addSignal(half2_img);
+	}
+	
+	private void auxBacktracking(int nivel, int valor) {
+		if (nivel == dataset.length) {
+			avg_img = new Imagen(width, height);
+			Imagen half_img1 = new Imagen(width, height);
+			Imagen half_img2 = new Imagen(width, height);
+			for (int i=0;i<sol.length;i++) {
+				if (sol[i] == 1) {
+					half_img1.addSignal(this.dataset[i]);
+				} else if (sol[i] == 2) {
+					half_img2.addSignal(this.dataset[i]);
+				}
+			}
+
+			if (half_img1.zncc(half_img2) > this.max_zncc) {
+				counter++;
+				for (int j = 0;j<sol.length;j++) {
+					bestSol[j] = sol[j];
+				}
+				this.max_zncc = half_img1.zncc(half_img2);
+				this.half1_img = half_img1;
+				this.half2_img = half_img2;
+
+			}
+			return;
+		} else {
+			sol[nivel] = 0;
+			auxBacktracking(nivel+1, 0);
+			sol[nivel] = 1;
+			auxBacktracking(nivel+1, 1);
+			sol[nivel] = 2;
+			auxBacktracking(nivel+1, 2);
+		}
+	}
+	
+	private void printSol() {
+		System.out.print("[");
+		for (int i : sol) {
+			System.out.print(i + ", ");
+		}
+		System.out.println("]");
 	}
 
 }

@@ -210,7 +210,7 @@ public class Imagen {
 	/**
 	 * @return devluelve el valor medio de los niveles de gris (p�xeles)
 	 */
-	private float computeMean() {
+	protected float computeMean() {
 		float total = 0;
 		for (int i=0; i<this.width; i++) 
 			for (int j=0; j<this.height; j++)
