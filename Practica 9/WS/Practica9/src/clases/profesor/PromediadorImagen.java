@@ -159,27 +159,29 @@ public class PromediadorImagen {
 	}
 	
 	private void auxBacktracking(int nivel, int valor, int max_unbalancing) {
-		if (nivel == dataset.length && isValidSolution(max_unbalancing)) {
-			avg_img = new Imagen(width, height);
-			Imagen half_img1 = new Imagen(width, height);
-			Imagen half_img2 = new Imagen(width, height);
-			for (int i=0;i<sol.length;i++) {
-				if (sol[i] == 1) {
-					half_img1.addSignal(this.dataset[i]);
-				} else if (sol[i] == 2) {
-					half_img2.addSignal(this.dataset[i]);
-				}
-			}
-
-			if (half_img1.zncc(half_img2) > this.max_zncc) {
+		if (nivel == dataset.length) {
+			if ( isValidSolution(max_unbalancing)) {
 				counter++;
-				for (int j = 0;j<sol.length;j++) {
-					bestSol[j] = sol[j];
+				avg_img = new Imagen(width, height);
+				Imagen half_img1 = new Imagen(width, height);
+				Imagen half_img2 = new Imagen(width, height);
+				for (int i=0;i<sol.length;i++) {
+					if (sol[i] == 1) {
+						half_img1.addSignal(this.dataset[i]);
+					} else if (sol[i] == 2) {
+						half_img2.addSignal(this.dataset[i]);
+					}
 				}
-				this.max_zncc = half_img1.zncc(half_img2);
-				this.half1_img = half_img1;
-				this.half2_img = half_img2;
-
+				
+				if (half_img1.zncc(half_img2) > this.max_zncc) {
+					for (int j = 0;j<sol.length;j++) {
+						bestSol[j] = sol[j];
+					}
+					this.max_zncc = half_img1.zncc(half_img2);
+					this.half1_img = half_img1;
+					this.half2_img = half_img2;
+					
+				}				
 			}
 			return;
 		} else {
@@ -199,7 +201,7 @@ public class PromediadorImagen {
 			if (el == 1) n_1++;
 			else if (el == 2) n_2++;
 		}
-		return n_1 - n_2 <= balance;
+		return Math.abs(n_1 - n_2) <= balance;
 	}
 	
 	/**
@@ -214,6 +216,7 @@ public class PromediadorImagen {
 	
 	private void auxBacktracking(int nivel, int valor) {
 		if (nivel == dataset.length) {
+			printSol();
 			avg_img = new Imagen(width, height);
 			Imagen half_img1 = new Imagen(width, height);
 			Imagen half_img2 = new Imagen(width, height);
