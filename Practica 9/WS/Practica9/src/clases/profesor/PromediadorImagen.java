@@ -216,7 +216,7 @@ public class PromediadorImagen {
 	
 	private void auxBacktracking(int nivel, int valor) {
 		if (nivel == dataset.length) {
-			printSol();
+//			printSol();
 			avg_img = new Imagen(width, height);
 			Imagen half_img1 = new Imagen(width, height);
 			Imagen half_img2 = new Imagen(width, height);
