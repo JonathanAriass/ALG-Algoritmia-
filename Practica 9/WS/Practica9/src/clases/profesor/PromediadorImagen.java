@@ -117,6 +117,7 @@ public class PromediadorImagen {
 		int val; 
 		int[] aux = new int[dataset.length];
 		for (int j=0;j<n_tries;j++) {
+			avg_img = new Imagen(width, height);
 			half1_img = new Imagen(width, height);
 			half2_img = new Imagen(width, height);
 			for (int i=0; i<this.dataset.length;i++) {

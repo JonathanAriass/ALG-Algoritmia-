@@ -20,7 +20,7 @@ public class PromediadorImagenBench {
 		
 		long t1, t2;
 		
-		for (int i = 2;i<14;i++) {
+		for (int i = 2;i<14;i+=2) {
 			n_bad = (int) ((PORCENTAJE_BAD/100.)*i);
 			n_real = i - n_bad;
 			img_avger = new PromediadorImagen(REAL_IMG, BAD_IMG, n_real, n_bad, S_NOISE);			
@@ -28,7 +28,8 @@ public class PromediadorImagenBench {
 			// TESTING VORAZ
 			System.out.print("TESTING VORAZ:\n");
 			t1 = System.currentTimeMillis ();
-			img_avger.splitSubsetsGreedy(i);
+			for (int j = 0; j<50; j++)
+				img_avger.splitSubsetsGreedy(i);
 			t2 = System.currentTimeMillis ();
 			System.out.println("n="+i+ "**TIEMPO="+(t2-t1) + "**ZNCC="+img_avger.zncc());
 			System.out.printf("  -ZNCC: %f\n",  img_avger.zncc());
