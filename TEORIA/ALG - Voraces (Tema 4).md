@@ -3,6 +3,7 @@
 <p>n objetos / tipos y una mochila para transportar los objetos. Para cada objeto i = 1, 2, ..., n tiene un peso wi y un valor vi. La mochila puede llevar un peso que no sobrepase W. El objetivo de este problema es maximizar el valor de los objetos transportados respetando la limitación de peso.
 </p>
 <p> También podemos tener el mismo problema pero la forma de resolverlo es más compleja al tener fragmentación de objetos, asignando una fracción del objeto a la mochila.</p>
+
 ## Algoritmos voraces ##
 <ul>
 <li>Los algoritmos voraces se utilizan en problemas de optimización.</li>
@@ -10,6 +11,7 @@
 <li>Basan la busqueda de la solución óptima al problema en buscar localmente la solución óptima.</li>
 <li>Para buscar la solución óptima se hace uso de heurísticos, que son reglas basadas en algún conocimiento del problema.</li>
 </ul>
+
 ### Elementos del problema ###
 <ul>
 <li>Conjunto de candidatos, las n entradas del problema.</li>
