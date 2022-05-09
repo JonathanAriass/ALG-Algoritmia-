@@ -111,3 +111,50 @@ public Estado realizarVoraz(List candidatos)
 		return null; // No se ha encontrado una solución  
 }
 ```
+
+
+# Ejemplos de algoritmos voraces
+## El problema del cambio
+<ul>
+<li>Diseñar un algoritmo para pagar una cierta cantidad, utilizando el menor numero posible de monedas.</li>
+<li>Ejemplo:</li>
+	<ul>
+	<li>Tenemos que pagar 2.89$</li>
+	</ul>
+<li>¿Heuristico?</li>
+	<ul>
+	<li>Funcion seleccion: Dar la moneda de mayor valor posible</li>
+	<li>Funcion factibilidad: **NO** excede lo que queda por devolver</li>
+	<li>Solucion: 1 moneda de 2$, 1 moneda de 50 cent, 1 moneda de 20 cent, 1 moneda de 10 cent, 1 moneda de 5 cent, 2 monedas de 2 cent. --> Solucion optima</li>
+	</ul>
+</ul>
+
+<p>No siempre sera la solucion optima, por ejemplo:</p>
+<ul>
+<li>Pagar 0.6$</li>
+<li>Monedas disponibles: 0.5$, 0.2$, 0.02$</li>
+<li>Solucion heuristico: 0.5$ + 0.02$ * 5 --> 6 monedas</li>
+<li>Solucion optima: 0.2$ * 3 --> 3 monedas</li>
+</ul>
+
+<p>Este problema se podria resover con backtracking, desarrollando todas las posiblidades posibles.</p>
+### Implementacion del problema del cambio
+```
+public void calcularCambio(int[] monedas, int cantidad)  
+{  
+	int tipoMon= 0;  
+	while (cantidad>0 && tipoMon<monedas.length)  
+	{  
+		// Estado es factible / valido  
+		if (cantidad-monedas[tipoMon]>=0)  
+		{  
+			// nueva moneda en el conjunto solución  
+			solucion[tipoMon]++;  
+			cantidad-= monedas[tipoMon];  
+		}  
+		else  
+			// pasa a comprobar la moneda de valor inferior  
+			tipoMon++;  
+	}  
+}
+```
