@@ -31,7 +31,7 @@ Estos algoritmos nunca reconsideran una decisión. La ventaja principal de este 
 <li>Función de selección de un nuevo elemento: en función del heurístico (estado del problema que suele ser un vector de estados)</li>
 <li>Función para comprobar si una solución es factible (Sumatorio de los pesos es menor que el paso límite)</li>
 </ul>
-### Ejemplo de problema (n = 5, W (límite) = 100)
+### Ejemplo de problema (n = 5, W (límite) = 100) ###
 | Mineral    | 1  | 2  | 3  | 4  | 5  |
 |------------|----|----|----|----|----|
 | w (Tm)     | 10 | 20 | 30 | 40 | 50 |
