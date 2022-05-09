@@ -76,6 +76,7 @@ Estos algoritmos nunca reconsideran una decisión. La ventaja principal de este 
 </ul>
 
 <p>Con estos datos vemos que utilizando el heuristico de v/w no obtenemos el valor optimo.</p>
+
 ## Caracteristicas algoritmos voraces
 <ul>
 <li>La principal caracteristica de estos algoritmos:</li>
