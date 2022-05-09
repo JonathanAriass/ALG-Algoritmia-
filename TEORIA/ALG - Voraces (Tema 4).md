@@ -41,6 +41,11 @@ Estos algoritmos nunca reconsideran una decisión. La ventaja principal de este 
 | v (x1000$) | 20 | 30 | 66 | 40 | 60 |
 <p>Tenemos dos posibilidades (heurísticos) para resolver este problema</p>
 <ul>
-<li>Selección del objeto más valioso</li>
-<li>Selección de objeto menos pesado</li>
+<li>Selección del objeto más valioso (decreciente vi)</li>
+<li>Selección de objeto menos pesado (creciente wi)</li>
 </ul>
+
+| Objetos    | 1  | 2  | 3  | 4  | 5  | Valor |
+|------------|----|----|----|----|----|-------|
+| Decreciente (vi)     | 0  | 0  | 1  | 0.5| 1  |146|
+| Creciente (wi) | 1 | 1 | 1 | 1 | 0 |156|
