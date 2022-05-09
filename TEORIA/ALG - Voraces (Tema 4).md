@@ -10,6 +10,7 @@
 <li>Basan la busqueda de la solución óptima al problema en buscar localmente la solución óptima.</li>
 <li>Para buscar la solución óptima se hace uso de heurísticos, que son reglas basadas en algún conocimiento del problema.</li>
 </ul>
+---
 ### Elementos del problema
 <ul>
 <li>Conjunto de candidatos, las n entradas del problema.</li>
@@ -18,11 +19,13 @@
 <li>Función que compruebe si un subconjunto es solución.</li>
 <li>Función objetivo que determine el valor de la solución hallada.</li>
 </ul>
+---
 ### Toma de decisiones en voraces
 <p>Estos algoritmos toman decisiones en base a la información que tienen localmente, es decir, no se preocupa de lo que pueda venir después ni de los datos ya analizados.</p>
 <p>
 Estos algoritmos nunca reconsideran una decisión. La ventaja principal de este tipo de algoritmos es que son faciles de programar y diseñar.
 </p>
+---
 ### Esquema general para resolver problemas con voraces
 <ul>
 <li>Candidatos: los n objetos</li>
