@@ -11,7 +11,6 @@
 <li>Para buscar la solución óptima se hace uso de heurísticos, que son reglas basadas en algún conocimiento del problema.</li>
 </ul>
 ### Elementos del problema ###
-<p>
 <ul>
 <li>Conjunto de candidatos, las n entradas del problema.</li>
 <li>Función de selección que en cada momento determine el candidato para formar la solución (práctica el ZNCC).</li>
@@ -19,7 +18,7 @@
 <li>Función que compruebe si un subconjunto es solución.</li>
 <li>Función objetivo que determine el valor de la solución hallada.</li>
 </ul>
-</p>
+
 ### Toma de decisiones en voraces ###
 <p>Estos algoritmos toman decisiones en base a la información que tienen localmente, es decir, no se preocupa de lo que pueda venir después ni de los datos ya analizados.</p>
 <p>
