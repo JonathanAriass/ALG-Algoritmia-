@@ -89,7 +89,7 @@ public double probabilidadPd(int i,int j)
 <li>0 si i > 0 y j = 0</li>
 <li>p * P(i-1, j) + q * P(i, j-1) si i > 0 y j > 0</li>
 </ul>
-<p>La tabla con la traza de ejecucion:</p>
+<p>La tabla con la traza de ejecucion (n = 3 y p = q - 0.5):</p>
 |i/j| 0 | 1 | 2 | 3 |
 |---|---|---|---|---|
 | 0 |   | 1 | 1 | 1 |
@@ -109,3 +109,8 @@ public double probabilidadPd(int i,int j)
 <li>Si siempre se conoce cual es la decision que debe tomarse a continuacion para obtener la secuencia optima, el problema se resuelve con una estrategia voraz.</li>
 <li>Principio de optimalidad, sigue siendo posible el ir tomando decisiones elementales, en la confianza de que la combinacion de ellas seguira siendo optima, pero sera entonces necesario explorar muchas secuencias de decisiones para dar con la correcta.</li>
 </ul>
+
+## Mochila 0/1 (sin fragmentacion)
+Datos de un problema concreto:
+* Numero de objetos: n = 3
+* Peso limite: W = 10
