@@ -8,7 +8,6 @@ a B.<br>Se puede obtener facilmente el valor de P(i, j) segun la expresion:</p>
 <li>p * P(i-1, j) + q * P(i, j-1) si i > 0 y j > 0</li>
 </ul>
 <p> Por lo tanto el algoritmo de divide y venceras tendra el siguiente aspecto</p>
-
 ```
 public double probabilidadDv(int i,int j)
 {
@@ -27,7 +26,6 @@ public double probabilidadDv(int i,int j)
 
 ### Analisis del algoritmo
 <p>Incoveniente: se estan repitiendo calculos innecesariamente.<br>La complejidad es exponencial, del orden de O(2**i+j) si i+j = n.<br>Para acelerar el algoritmo: declaramos una tabla del tamaño adecuado y vamos rellenando las entradas.<br><br>Divide y venceras divide los problemas en subproblemas y combina las soluciones par resolver el problema original.<br>El diseño de divide y venceras puede llegar a ser poco optimo porque se divida el problema inicial en un numero muy alto de subproblemas. Ademas de las posibles repeticiones de subproblemas que se solucionaran tantas veces como se repitan.</p>
-
 ### Ejemplo de ineficiencia (Fibonacci)
 ```
 public static long fibDyV (int n)
@@ -37,9 +35,7 @@ public static long fibDyV (int n)
 	else return fibDyV(n-1)+fibDyV(n-2);
 }
 ```
-
 <p>Al desarrollar el arbol de ejecucion de este algoritmo se puede apreciar que se va a resolver el fibonacci de 1 muchisimas veces, por lo que este algoritmo para este problema es muy ineficiente.<br>Una forma de resolver este problema de una forma mas optima es con programacion dinamica, como por ejemplo:</p>
-
 ```
 public static long fibPD (int n)
 {
@@ -93,12 +89,7 @@ public double probabilidadPd(int i,int j)
 <li>0 si i > 0 y j = 0</li>
 <li>p * P(i-1, j) + q * P(i, j-1) si i > 0 y j > 0</li>
 </ul>
-<<<<<<< HEAD
 <p>La tabla con la traza de ejecucion (n = 3 y p = q - 0.5):</p>
-=======
-<p>La tabla con la traza de ejecucion:</p>
-
->>>>>>> 5a900646ae4751485f89f60518af1fe3f18c8914
 |i/j| 0 | 1 | 2 | 3 |
 |---|---|---|---|---|
 | 0 |   | 1 | 1 | 1 |
@@ -123,3 +114,27 @@ public double probabilidadPd(int i,int j)
 Datos de un problema concreto:
 * Numero de objetos: n = 3
 * Peso limite: W = 10
+| Objeto | 1 | 2 | 3 | 
+|-|-|-|-|
+|wi|6|5|5|
+|vi|8|5|5|
+
+Resolucion del problema con programacion dinamica:
+* Tabla V
+	* Filas: los objetos i
+	* Columnas: pesos maximos de la mochila
+* V[i, j] --> Valor maximo de los objetos que se transportan
+* Solucion a nuestro problema V[n, W], V[3,10] (esquina inferior izquierda)
+
+La funcion que permite calcular los valores de la matriz es la siguiente:
+* -Infinito si j<0
+* 0 si i = 0 y j >= 0
+* max (V[i-1, j], V[i-1, j - wi] + vi) en otro caso
+Siendo i el numero del objeto que deseamos meter en la mochila y j el peso maximo de la mochila.
+
+Se va rellenando la tabla en funcion del peso de los objetos, por ejemplo al principio solo van a haber ceros puesto que el peso maximo de la mochila es menor que el de los objetos hasta el momento que llegamos a la quinta columna o sexta y ya se pueden meter objetos en la mochila. Siendo esto:
+| i \ j | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |
+|-------|---|---|---|---|---|---|---|---|---|---|----|
+| 1     | 0 | 0 | 0 | 0 | 0 | 0 | 8 | 8 | 8 | 8 | 8  |
+| 2     | 0 | 0 | 0 | 0 | 0 | 5 | 8 | 8 | 8 | 8 | 8  |
+| 3     | 0 | 0 | 0 | 0 | 0 | 5 | 8 | 8 | 8 | 8 | 10 |
