@@ -120,6 +120,7 @@ public double probabilidadPd(int i,int j)
 Datos de un problema concreto:
 * Numero de objetos: n = 3
 * Peso limite: W = 10
+
 | Objeto | 1 | 2 | 3 | 
 |-|-|-|-|
 |wi|6|5|5|
