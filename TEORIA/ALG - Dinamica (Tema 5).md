@@ -39,6 +39,7 @@ public static long fibDyV (int n)
 }
 ```
 <p>Al desarrollar el arbol de ejecucion de este algoritmo se puede apreciar que se va a resolver el fibonacci de 1 muchisimas veces, por lo que este algoritmo para este problema es muy ineficiente.<br>Una forma de resolver este problema de una forma mas optima es con programacion dinamica, como por ejemplo:</p>
+
 ```
 public static long fibPD (int n)
 {
