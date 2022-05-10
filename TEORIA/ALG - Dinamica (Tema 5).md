@@ -8,6 +8,7 @@ a B.<br>Se puede obtener facilmente el valor de P(i, j) segun la expresion:</p>
 <li>p * P(i-1, j) + q * P(i, j-1) si i > 0 y j > 0</li>
 </ul>
 <p> Por lo tanto el algoritmo de divide y venceras tendra el siguiente aspecto</p>
+
 ```
 public double probabilidadDv(int i,int j)
 {
@@ -26,6 +27,7 @@ public double probabilidadDv(int i,int j)
 
 ### Analisis del algoritmo
 <p>Incoveniente: se estan repitiendo calculos innecesariamente.<br>La complejidad es exponencial, del orden de O(2**i+j) si i+j = n.<br>Para acelerar el algoritmo: declaramos una tabla del tamaño adecuado y vamos rellenando las entradas.<br><br>Divide y venceras divide los problemas en subproblemas y combina las soluciones par resolver el problema original.<br>El diseño de divide y venceras puede llegar a ser poco optimo porque se divida el problema inicial en un numero muy alto de subproblemas. Ademas de las posibles repeticiones de subproblemas que se solucionaran tantas veces como se repitan.</p>
+
 ### Ejemplo de ineficiencia (Fibonacci)
 ```
 public static long fibDyV (int n)
@@ -35,7 +37,9 @@ public static long fibDyV (int n)
 	else return fibDyV(n-1)+fibDyV(n-2);
 }
 ```
+
 <p>Al desarrollar el arbol de ejecucion de este algoritmo se puede apreciar que se va a resolver el fibonacci de 1 muchisimas veces, por lo que este algoritmo para este problema es muy ineficiente.<br>Una forma de resolver este problema de una forma mas optima es con programacion dinamica, como por ejemplo:</p>
+
 ```
 public static long fibPD (int n)
 {
