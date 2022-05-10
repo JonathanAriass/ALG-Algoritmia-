@@ -95,6 +95,7 @@ public double probabilidadPd(int i,int j)
 <li>p * P(i-1, j) + q * P(i, j-1) si i > 0 y j > 0</li>
 </ul>
 <p>La tabla con la traza de ejecucion (n = 3 y p = q - 0.5):</p>
+
 |i/j| 0 | 1 | 2 | 3 |
 |---|---|---|---|---|
 | 0 |   | 1 | 1 | 1 |
