@@ -153,8 +153,29 @@ public class AjedrezReinasUna
 				}
 	}
 }
-```s
+```
 
 </details>
 
+Un ejemplo de ejecucion sin exito puede ser la primera ejecucion que se tiene en cuenta, siendo los valores de los array:
+* sol = (0,0,0,0) -> (**0**, 0, 0, 0) -> (**0**, **2**, 0, 0) -> FALLO DE SOLUCION
+* a = (T, T, T, T) -> (**F**, T, T, T) -> (**F**, T,  **F**, T) -> -
+* b = (T, T, T, T, T, T, T) -> (**F**, T, T, T, T, T, T) -> (**F**, T, T, T, **F**, T, T) -> -
+* c = (T, T, T, T, T, T, T) -> (T, T, T, T, T, T, **F**) -> T, T, T, T, T, **F**, **F**) -> -
 
+ Una solucion puede venir dada por la forma:
+ 
+ | |  | X | |
+ |-|-|-|-|
+ |X|  | | |
+ | | | | X|
+ | |X | |
+
+Como se puede apreciar no hay una reina que coma a otra.
+
+
+## Mejora de backtracking con poda de nodos
+La poda consiste en dar una condicion que impida que un desarrollo de nodos sigan adelante. Estas condiciones son las que determinan si un desarrollo puede llegar a ser una solucion valida o no. Se aplica cuando tenemos que buscar una solucion optima puesto que hay muchos mas calculos y por tanto necesitamos bajar el coste de computacion por alguna parte.
+
+## Complejidad de algoritmos que emplean backtracking
+Las complejidades de algoritmos backtracking son o bien exponenciales o bien factoriales. Esto depende en el grado del arbol que se genera. Por ejemplo en el caso del problema de la recomposicion de imagenes podemos comprobar como la complejidad es O(3^n).
