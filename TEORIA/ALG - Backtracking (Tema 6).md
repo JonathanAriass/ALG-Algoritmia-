@@ -153,7 +153,7 @@ public class AjedrezReinasUna
 				}
 	}
 }
-```s
+```
 
 </details>
 
