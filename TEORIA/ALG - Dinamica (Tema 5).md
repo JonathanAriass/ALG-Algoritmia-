@@ -8,6 +8,7 @@ a B.<br>Se puede obtener facilmente el valor de P(i, j) segun la expresion:</p>
 <li>p * P(i-1, j) + q * P(i, j-1) si i > 0 y j > 0</li>
 </ul>
 <p> Por lo tanto el algoritmo de divide y venceras tendra el siguiente aspecto</p>
+
 ```
 public double probabilidadDv(int i,int j)
 {
