@@ -27,7 +27,9 @@ public double probabilidadDv(int i,int j)
 
 ### Analisis del algoritmo
 <p>Incoveniente: se estan repitiendo calculos innecesariamente.<br>La complejidad es exponencial, del orden de O(2**i+j) si i+j = n.<br>Para acelerar el algoritmo: declaramos una tabla del tamaño adecuado y vamos rellenando las entradas.<br><br>Divide y venceras divide los problemas en subproblemas y combina las soluciones par resolver el problema original.<br>El diseño de divide y venceras puede llegar a ser poco optimo porque se divida el problema inicial en un numero muy alto de subproblemas. Ademas de las posibles repeticiones de subproblemas que se solucionaran tantas veces como se repitan.</p>
+
 ### Ejemplo de ineficiencia (Fibonacci)
+
 ```
 public static long fibDyV (int n)
 {
@@ -50,6 +52,7 @@ public static long fibPD (int n)
 <p>La mejora de la eficiencia se puede tener en cuenta cuando el numero de problemas distintos es polinomico, podemos resolver cada subproblema una vez y podemos guardar su solucion para un uso posterior.<br>La idea de esto es evitar realizar dos veces el mismo subproblema.</p>
 
 ### Probabilidad de ganar play-offs con programacion dinamica
+
 ```
 public double probabilidadPd(int i,int j)
 {
