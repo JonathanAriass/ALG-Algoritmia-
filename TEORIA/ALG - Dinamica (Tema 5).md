@@ -138,3 +138,5 @@ Se va rellenando la tabla en funcion del peso de los objetos, por ejemplo al pri
 | 1     | 0 | 0 | 0 | 0 | 0 | 0 | 8 | 8 | 8 | 8 | 8  |
 | 2     | 0 | 0 | 0 | 0 | 0 | 5 | 8 | 8 | 8 | 8 | 8  |
 | 3     | 0 | 0 | 0 | 0 | 0 | 5 | 8 | 8 | 8 | 8 | 10 |
+
+Siendo la solucion a este problema la casilla V[3,10] = 10 (solucion optima en este caso, puede haber mas de una).
