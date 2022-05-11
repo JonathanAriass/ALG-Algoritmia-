@@ -4,7 +4,7 @@ Esta tecnica trata de explorar un arbol implicito, igual que en backtracking. Un
 Para solucionar el problema debemos buscar el nodo solucion y un camino en el arbol asociado.
 
 Al contrario de backtracking el recorrido que se toma es un recorrido en anchura y no en profundidad. Esto viene dado por la creacion de todos los nodos hijos antes de pasar al proximo nivel del arbol. Un ejemplo de este recorrido es el siguiente:
-<<<<<<< HEAD
+
 ![Recorrido en anchura](Recorrido_anchura.png)
 
 El esquema de este recorrido es el siguiente (solo una solucion):
@@ -88,11 +88,3 @@ Para realizar la poda se necesita un metodo mucho mas agresivo que la poda vista
 Si ya tenemos conocimientos previos del problema podemos hacer uso de una cota inicial que lo que nos permitira sera marcar los limites de desarrollo de estados en el arbol.
 
 Otra cosa particular de la poda es que se pueden repetir estados y por lo tanto podria ser interesante el mantener una lista de los estados que ya aparecieron. En la practica esto supone un coste elevado de memoria para albergar dichas estructuras y tiempo de computacion puesto que es necesario comprobar si el estado ya existe o no.
-
-
-
-## Ejemplo de ramificacion y poda
-=======
-
-![Recorrido en anchura](Recorrido_anchura.png)
->>>>>>> 8b3cb0592bce7361dfc47b8f8bf03bfa7529c0e4
