@@ -94,7 +94,7 @@ Estos algoritmos nunca reconsideran una decisión. La ventaja principal de este 
 </ul>
 
 ## Esquema general de algoritmos voraces
-```
+```java
 public Estado realizarVoraz(List candidatos)  
 {  
 	Estado estadoActual= new Estado();  
@@ -140,7 +140,7 @@ public Estado realizarVoraz(List candidatos)
 
 <p>Este problema se podria resover con backtracking, desarrollando todas las posiblidades posibles.</p>
 ### Implementacion del problema del cambio
-```
+```java
 public void calcularCambio(int[] monedas, int cantidad)  
 {  
 	int tipoMon= 0;  
