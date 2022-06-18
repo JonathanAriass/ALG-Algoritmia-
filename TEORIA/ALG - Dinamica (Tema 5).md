@@ -9,7 +9,7 @@ a B.<br>Se puede obtener facilmente el valor de P(i, j) segun la expresion:</p>
 </ul>
 <p> Por lo tanto el algoritmo de divide y venceras tendra el siguiente aspecto</p>
 
-```
+```java
 public double probabilidadDv(int i,int j)
 {
 	if (i==0)
@@ -30,7 +30,7 @@ public double probabilidadDv(int i,int j)
 
 ### Ejemplo de ineficiencia (Fibonacci)
 
-```
+```java
 public static long fibDyV (int n)
 {
 	if (n<=1)
@@ -54,7 +54,7 @@ public static long fibPD (int n)
 
 ### Probabilidad de ganar play-offs con programacion dinamica
 
-```
+```java
 public double probabilidadPd(int i,int j)
 {
 	double[][] a= new double[i+1][j+1]; // necesitamos índices desde 0 hasta i
