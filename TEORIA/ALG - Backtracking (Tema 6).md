@@ -6,7 +6,7 @@ Para solucionar el problema debemos buscar un nodo solucion y un camino en el gr
 Por ejemplo como en la practica de backtracking, un nodo representa una posible solucion para la recomposicion de la imagen y la arista es el añadir una nueva imagen al subproblema.
 
 ### Ejemplo de recorrido en profundidad de un grafo
-```
+```java
 public recorridoProfundidad(Grafo g)  
 {  
 	Nodo n;  
@@ -42,7 +42,7 @@ En caso de que el recorrido que se este ejecutando en un instante no tiene exito
 
 El esquema general de Backtracking tiene la siguiente forma:
 
-```
+```java
 public static void backtracking(Estado e)  
 {  
 	if (e.esSolucion()) {  
@@ -63,7 +63,7 @@ public static void backtracking(Estado e)
 
 Se tendra que tener en cuenta tambien la clase **Estado**:
 
-```
+```java
 public interface Estado  
 {  
 	/** Devuelve true si este estado es una solución al problema */  
